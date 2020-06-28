@@ -1,5 +1,5 @@
 # Custom Macro Collection Demo
-This is the demo file of the custom macro collection. It is now publicly available for your perusal.
+This is the demo file of the [custom macro collection](https://macros.twinelab.net/). It is now publicly available for your perusal.
 
 See it compiled [here](https://macros.twinelab.net/demo/).
 
