@@ -1,0 +1,17 @@
+:: speech
+The speech box system set is a set of macros and functions for creating speech boxes, like
+
+You can use the {{{<<character>>}}} macro in your {{{StoryInit}}} special passage to create other custom macros that you can then use to display speech boxes. For example, the following line of code is in this demo file's {{{StoryInit}}} special passage:
+
+<pre><code><nowiki><<character 'lisa' 'assets/lisa.jpg'>></nowiki></code></pre>
+
+This code creates the {{{<<lisa>>}}} macro for us:
+
+<<lisa>>Hey there!<</lisa>>
+
+If you can't or don't want to predefine characters, you can instead use the {{{<<say>>}}} macro:
+ 
+<<say 'bob' 'assets/bob.jpg'>>I am basically a meme now.<</say>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/speech-box-system]]

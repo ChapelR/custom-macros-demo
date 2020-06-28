@@ -1,0 +1,9 @@
+:: message 
+The {{{<<message>>}}} macro can be used to create user-toggleable messages, such as for help, tutorials, or more information. We've been using it in the <<button 'View Source Code'>><</button>> buttons all across this file.
+
+<<message 'Help'>>\
+    It's a lot like the {{{<<linkappend>>}}} macro, but users can also remove the content when they're done.\
+<</message>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/message-macro]]

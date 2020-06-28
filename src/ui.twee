@@ -1,0 +1,13 @@
+:: ui
+The {{{<<ui>>}}} macro can be used to control many features of SugarCube's default UI from within macro code.
+
+<<link 'Toggle the UI Bar'>>
+    <<ui 'toggle'>>
+<</link>>
+
+<<link 'Open the Saves Dialog'>>
+    <<ui 'saves'>>
+<</link>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/ui-macro]]

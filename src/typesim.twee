@@ -1,0 +1,9 @@
+:: typesim 
+The {{{<<typesim>>}}} macro allows you to //simulate// user input, but actually show them a predefined message. Try typing in the box below for an example:
+
+<<typesim "You get to feel like you're typing, and that can be a cool interaction, but in reality, we just show you what we want you to see and make you say what we want you to say.">>\
+    Once the user finishes the message, you can run any code you like!\
+<</typesim>>\
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/type-sim]]

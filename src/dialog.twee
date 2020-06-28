@@ -1,0 +1,45 @@
+:: dialog
+The {{{<<dialog>>}}} and {{{<<popup>>}}} macros allow you to use the built-in [[Dialog API|http://www.motoslave.net/sugarcube/2/docs/#dialog-api]] to create modals (dialogs or popups) and display whatever you want in them.
+
+The {{{<<dialog>>}}} macro renders the content between the tags into the modal:
+
+<<link 'Say hello!'>>
+    <<dialog 'Greetings'>>
+        <<set _hi to ['Hello!', 'Welcome.', 'Greetings!', 'Hi there!', 'Good day.']>>
+        The computer says "<<= _hi.random()>>"
+     <</dialog>>
+<</link>>
+
+The {{{<<popup>>}}} macro renders the content of the indicated passage into the modal:
+
+<<link 'Say Goodbye'>>
+    <<popup 'popup-passage' 'Farewell'>>
+<</link>>
+
+[[Next|dialog2]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/dialog-api-macro-set]]
+
+:: popup-passage
+<<set _bye to ['Goodbye!', 'See ya.', 'Bye!', 'Later!', 'Farewell.']>>
+The computer says "<<= _bye.random()>>"
+
+:: dialog2
+The {{{<<dialog>>}}} macro accepts two additional child tags, {{{<<onopen>>}}} and {{{<<onclose>>}}}, which you can use to set up event handlers that run their content when the dialog is opened or closed.
+
+<<link 'Click here!'>>
+    <<dialog 'some message'>>
+        This dialog shows an alert for some reason?
+    <<onclose>>
+        <<dialog 'some message'>>
+            This is another dialog!
+        <</dialog>>
+    <</dialog>>
+<</link>>
+
+
+[[Go back.|dialog]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/dialog-api-macro-set]]

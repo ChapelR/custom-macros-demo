@@ -1,0 +1,21 @@
+:: playtime
+This system can be used to display and record the user's playtime, much like in a lot of video games. The playtime system includes a function, a macro, and a passage tag.
+
+Your current playtime is:
+@@#time;<<playtime format>>@@
+<<silently>>
+    <<repeat 1s>>
+        <<replace '#time'>><<playtime format>><</replace>>
+    <</repeat>>
+<</silently>>\
+
+Check back to see it update.
+
+In addition, you can fetch specific time values, like minutes, hours, and seconds using the {{{playTime()}}} function.
+
+You've been playing for <<= playTime('minutes')>> minutes!
+
+There's also a passage tag, {{{pausetimer}}}, which can be used to pause the play timer, for example when the user is in menus.
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/playtime-system]]

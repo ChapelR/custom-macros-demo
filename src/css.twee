@@ -1,0 +1,21 @@
+:: css
+The {{{<<css>>}}} macro is a [[DOM macro|http://www.motoslave.net/sugarcube/2/docs/#macros-dom]] that can target a specific element on the page and alter its CSS styles (each style rule is passed as a property / value pair). You can pass the style rules as a list of strings, an object literal (passed in backticks) or as an object variable.
+
+@@.some-class;This text will be styled by the {{{<<css>>}}} macro!@@
+
+<<link 'Change the text color and size.'>>
+    <<css '.some-class' 'font-size' '1.2rem' 'color' 'pink'>>
+<</link>>
+<<link 'Give the text border and make it bold.'>>
+    <<css '.some-class' `{ 'display' : 'inline-block', 'border' : '1px solid #eee', 'font-weight' : 'bold' }`>>
+<</link>>
+<<link 'Make the text smaller and italicize it.'>>
+    <<set _styles to {
+        'font-size' : '0.9rem',
+        'font-style' : 'italic'
+    }>>
+    <<css '.some-class' _styles>>
+<</link>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/css-macro]]

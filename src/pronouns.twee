@@ -1,0 +1,54 @@
+:: pronouns
+The ''pronoun templates'' system is a drop-in system for handling player characters with configurable genders. It allows users to define and customize their preferred pronouns via a dialog modal that can be accessed via a macro or the {{{Setting}}} API. You can then leverage SugarCube's new {{{Template}}} API (add docs link) to use the templates in your game.
+
+<<link 'Configure your pronouns.'>>
+    <<pronouns>>
+<</link>>
+
+[[Next|pronouns2]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/pronoun-templates]]
+
+:: pronouns2
+<div class='poem'>\
+Nobody heard ?him, the dead ?man,   
+But still ?he <<verb 'lies'>> moaning:
+I was much further out than you thought   
+And not waving but drowning.
+
+Poor chap, ?he always loved larking
+And now ?he <<verb 'is'>> dead
+It must have been too cold for ?him ?his_ heart gave way,   
+They said.
+
+Oh, no no no, it was too cold always   
+(Still the dead one lay moaning)   
+I was much too far out all my life   
+And not waving but drowning.
+\</div>
+
+-- Stevie Smith, “Not Waving but Drowning” from Collected Poems of Stevie Smith. Copyright © 1972 (Modified by Chapel to show off the macro).
+
+[[Go back.|pronouns]]
+[[Handling verbs.|pronouns3]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/pronoun-templates]]
+
+:: pronouns3
+Pronouns also include a {{{<<verb>>}}} macro for pluralizing the verb forms or third person verbs.
+
+?He <<verb 'waits'>>.
+
+The macro accepts a singular verb form and attempts to process it and turn it into a plural form if it detects that the pronouns being used are plural. For unusual verbs, you can provide both the singular and plural versions.
+
+?She<<verb "'s" "'re">> pretty happy about it.
+
+?He-s pretty cool.
+
+[[Go back.|pronouns2]]
+[[Start over.|pronouns]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/pronoun-templates]]

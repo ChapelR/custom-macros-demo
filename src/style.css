@@ -1,0 +1,28 @@
+.hide {
+    display: none;
+}
+
+textarea {
+    min-height: 6em;
+}
+
+.poem {
+    border-left: 1px solid #ccc;
+    padding-left: 1em;
+}
+
+#cycles {
+    text-align: center;
+    background: #555;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.2em 0;
+    margin: 0.2em 0;
+}
+
+code, pre {
+    background: #eee;
+    color: #111;
+    font-family: Consolas, Monaco, Courier New, monospace;
+    padding: 0.1em 0.2em;
+}

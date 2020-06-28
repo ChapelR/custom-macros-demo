@@ -1,0 +1,25 @@
+:: continue
+The {{{<<cont>>}}} macro can be used to listen for certain kinds of user input and respond.
+
+Click anywhere to continue.
+
+<<cont append>>\
+    You can use the {{{keypress}}} keyword to allow any key press to also trigger the continuation.
+
+    Click ''or'' press any key to continue.
+
+    <<cont keypress append>>\
+        You can use the {{{<<ignore>>}}} macro to have the key and click events ignore certain elements (based on selector), but a sane group of defaults is already included for your convenience. This prevents clicks on links or dialogs from counting, for exmaple.\
+    <</cont>>\
+<</cont>>
+/*[[expiration test]]*/
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/continue-macro]]
+
+:: expiration test
+<<set _i to 0>>
+@@#counter;_i@@
+<<cont keypress>>
+    <<set _i++>>
+    <<replace '#counter'>>_i<</replace>>
+<</cont>>

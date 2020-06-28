@@ -1,0 +1,11 @@
+:: fading
+The {{{<<fadein>>}}} and {{{<<fadeout>>}}} macros can be used to display simple, timed fading animations on blocks of text.
+
+<<fadein 10s>>This text, for example is fading in over a long period of time.<</fadein>>
+
+<<fadeout 2s 4s>>While this text is fading out after a delay.<</fadeout>>
+
+<<fadein 5s 5s>><<fadeout 5s 11s>>This text fades in and then out by using both macros.<</fadeout>><</fadein>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/fading-macros]]

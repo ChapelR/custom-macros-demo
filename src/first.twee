@@ -1,0 +1,23 @@
+:: first
+The {{{<<first>>}}} macro, and it's child tags, {{{<<then>>}}} and {{{<<finally>>}}}, can be used to show content conditionally based on how many times a user has entered a passage. Try going to another passage and coming back, or click the link below to re-navigate to this same passage.
+<<first>>\
+    
+    This text, for example, only shows on the first visit to this passage.
+<<then>>\
+
+    As you can see, the content of this passage has changed on your second visit.
+<<finally>>\
+
+    Using the {{{<<}}}{{{finally}}}{{{>>}}} tag allows you to have content that ''stays'' permanently once it is shown.
+<</first>><<first>><<then>>\
+
+    You can also show content on the second (or third, etc) time a player visits a passage without needing to show anything the first time around by using the {{{<<}}}{{{then}}}{{{>>}}} macro and leaving the {{{<<}}}{{{first}}}{{{>>}}} part blank.
+<</first>><<first>><<finally>>\
+
+    By can also use the above technique with the {{{<<}}}{{{finally}}}{{{>>}}} macro!
+<</first>>\
+
+[[Renavigate to this passage|passage()]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/first-macro]]

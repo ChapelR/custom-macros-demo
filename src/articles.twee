@@ -1,0 +1,18 @@
+:: articles
+The articles macro set allows you to prepend words or phrases with the appropriate idenfitine article ("a" or "an").
+
+<<A 'European man'>>.
+It's been <<a 'honor'>>.
+
+You can use this macro set for when you need to determine the correct article to use when generating, for example, random loot.
+
+<<set _mats to either('iron', 'wooden', 'steel', 'adamantium', 'crystal')>>\
+@@#output;You found <<a _mats>> sword!@@
+
+<<button 'Generate another.'>>
+    <<set _mats to either('iron', 'wood', 'steel', 'adamantium', 'crystal')>>
+    <<replace '#output'>>You found <<a _mats>> sword!<</replace>>
+<</button>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/articles]]

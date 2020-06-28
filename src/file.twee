@@ -1,0 +1,110 @@
+:: file 
+The file system macros, {{{<<import>>}}} and {{{<<export>>}}}, can be used to save arbitrary data to the user's disk and to allow users to upload the same. This can be used by authors to allow users to share data between different stories, such as in episodic games. It can also be used in other ways; an older implementation of a similar concept can be found in my [[Spellbook app|https://twinelab.net/spellbook/]].
+
+For the following examples, let's enter some data to save.
+
+<<set $name to 'Barry'>>\
+Enter your name: <<textbox '$name' $name autofocus>> @@#error;@@
+
+<<set $num to 0>>\
+Pick a number: @@#number;$num@@
+<<link '0'>>
+    <<set $num to 0>>
+    <<replace '#number'>>$num<</replace>>
+<</link>> \
+<<link '1'>>
+    <<set $num to 1>>
+    <<replace '#number'>>$num<</replace>>
+<</link>> \
+<<link '2'>>
+    <<set $num to 2>>
+    <<replace '#number'>>$num<</replace>>
+<</link>> \
+<<link '3'>>
+    <<set $num to 3>>
+    <<replace '#number'>>$num<</replace>>
+<</link>>
+
+<<link 'Continue'>>
+    <<set $name to $name.trim()>>
+    <<if not $name>>
+        <<replace '#error'>>Names typically include letters!<</replace>>
+    <<else>>
+        <<goto [[file2]]>>
+    <</if>>
+<</link>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/file-system-macros]]
+
+:: file2
+Now, we'll use the {{{<<export>>}}} macro to save the data you've provided to your hard drive. This will trigger a download.
+
+<<set _data to { name : $name, num : $num }>>\
+<<button 'Export the Data'>>
+    <<export _data 'info' 'json'>>
+<</button>>
+
+The data can be saved in a few different formats, but when imported, you'll need to know what it was exported as.
+
+Next we'll try to import the data back.
+
+[[Continue|file3]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/file-system-macros]]
+
+:: file3
+Now we'll try to import the data with the {{{<<import>>}}} macro.
+
+<<import '$imported' 'json'>>
+
+Before moving on, let's change our name and number too, so we can show these values side by side.
+
+Enter your name: <<textbox '$name' $name autofocus>> @@#error;@@
+
+Pick a number: @@#number;$num@@
+<<link '0'>>
+    <<set $num to 0>>
+    <<replace '#number'>>$num<</replace>>
+<</link>> \
+<<link '1'>>
+    <<set $num to 1>>
+    <<replace '#number'>>$num<</replace>>
+<</link>> \
+<<link '2'>>
+    <<set $num to 2>>
+    <<replace '#number'>>$num<</replace>>
+<</link>> \
+<<link '3'>>
+    <<set $num to 3>>
+    <<replace '#number'>>$num<</replace>>
+<</link>>
+
+<<link 'Continue'>>
+    <<set $name to $name.trim()>>
+    <<if not $name>>
+        <<replace '#error'>>Names typically include letters!<</replace>>
+    <<else>>
+        <<goto [[file4]]>>
+    <</if>>
+<</link>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/file-system-macros]]
+
+:: file4
+Now here's both sets of data.
+
+!!!The data entered:
+name: $name
+number: $num
+
+!!!The imported data:
+name: $imported.name
+number $imported.num
+
+The {{{<<import>>}}} macro can also be used to import SugarCube saved data from other games, meaning you don't always have to generate a custom export. See the documentation for more.
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/file-system-macros]]

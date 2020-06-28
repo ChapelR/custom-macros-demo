@@ -1,0 +1,26 @@
+:: dice
+The dice roller and fairmath system includes, as you may imagine, two main components, a diced roller, and a [[fairmath|https://choicescriptdev.fandom.com/wiki/Arithmetic_operators#Fairmath]] system.
+
+!!Dice Roller
+The dice roller accepts either two numbers or a string of dice notation. All of the following lines of code rolls 3d6+2, that is, three six-sided dice and adds two.
+
+|{{{dice('3d6+2')}}}|: <<= dice('3d6+2')>>|
+|{{{dice(3, 6) + 2}}}|: <<= dice(3, 6) + 2>>|
+|{{{(3).d(6) + 2}}}|: <<= (3).d(6) + 2>>|
+
+There are also a few other syntax formations and methods that work, check the documentation for more.
+
+!!Fairmath
+The fairmath methods are based on the //ChoiceScript// fairmath operations, it's a system that is used to adjust stats on a curve.
+
+We'll start a stat at 0, then do some math to show this system off.  We'll use the variable {{{_fm}}} to hold our stat for this demonstartion.<<set _fm to 0>>
+
+| ''OPERATION'' | ''CODE USED'' | ''RESULT'' |
+|Adding 15 | {{{Math.fm(_fm, 15)}}} | <<set _fm to Math.fm(_fm, 15)>> _fm |
+|Adding 50 | {{{_fm.fm(50)}}} | <<set _fm to _fm.fm(50)>> _fm |
+|Adding 15 | {{{Math.fm(_fm, 15)}}} | <<set _fm to Math.fm(_fm, 15)>> _fm |
+|Subtracting 15 | {{{Math.fm(stat, -15)}}} | <<set _fm to Math.fm(_fm, -15)>> _fm |
+|Subtracting 10 | {{{_fm.fm(-10)}}} | <<set _fm to _fm.fm(-10)>> _fm |
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/operations-api]]

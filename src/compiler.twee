@@ -1,0 +1,74 @@
+:: StoryData
+{
+    "ifid": "5a1c9f24-6a3d-4bcc-b2ce-2ae73eccdfd4"
+}
+
+:: StoryTitle
+Custom Macros Demo
+
+:: StoryInit
+<<set $gist to "https://gist.github.com/ChapelR/3759a9ad0246eb72bc47a621f1edbf43.js">>
+<<set $gistCode to "3759a9ad0246eb72bc47a621f1edbf43">>
+
+<<set $health to 100, $maxHealth to 100>>
+<<newmeter 'timer' 0>>
+    <<colors 'red' 'green'>>
+    <<animation 10s linear>>
+<</newmeter>>
+<<newmeter 'health' 1>>
+    <<sizing '220px'>>
+    <<label '$health'>>
+<</newmeter>>
+<<newmeter 'stamina'>><</newmeter>>
+
+<<newcycle 'time' 3>>
+    <<phase 'morning' 'day' 'evening' 'night'>>
+<</newcycle>>
+
+<<character 'lisa' 'assets/lisa.jpg'>>
+
+:: Start [no-gist]
+Welcome to the [[Custom Macros for SugarCube 2|https://macros.twinelab.net]] demo.
+
+This file will include demos and examples of my macro collection in action. To get started, pick a macro in the story menu to the left.
+
+:: StoryMenu
+[[Dialog API Macros|dialog]]
+[[The UI Macro|ui]]
+[[The Done Macro|done]]
+[[The Mouseover Macro|mouseover]]
+[[The Continue Macro|continue]]
+[[The Event Macros|event]]
+[[The Fading Macros|fading]]
+[[The CSS Macro|css]]
+[[The Swap Macros|swap]]
+[[The File System Macros|file]]
+[[The First Macro|first]]
+[[The Message Macro|message]]
+[[The Notify Macro|notify]]
+[[Dice and Math Functions|dice]]
+[[The Meter Macro Set|meters]]
+[[The Speech Box System|speech]]
+[[The Playtime System|playtime]]
+[[The Cycles System|cycles]]
+[[The Simple Inventory|inventory]]
+[[The Typing Simulation Macro|typesim]]
+[[The Pronoun Templates|pronouns]]
+[[The Articles (A/An) Macros|articles]]
+
+:: PassageFooter
+/* embed gist */
+<<if not tags().includes('no-gist')>>\
+    <<set _file to passage()>>
+    <<button 'View Source Code'>>
+        <<toggleclass '#gister' 'hide'>>
+    <</button>>
+    @@#gister;.hide;
+        <div class="gist" @data-gist="$gistCode" @data-gist-file="_file"></div>
+    @@
+<</if>>
+
+:: PassageHeader
+<<if tags().includes('cycle')>>\
+    <div id='cycles'><<showcycle 'time' upperfirst>></div>
+\<</if>>

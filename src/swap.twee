@@ -1,0 +1,64 @@
+:: swap
+The {{{<<swap>>}}} macro can be used to create puzzles or other creative forms of user interaction that invloves swapping words around on the page. The {{{<<onswap>>}}} macro can be used to make adjustments and run code when swaps occur, and inside the {{{<<onswap>>}}} block, the {{{swapCurrent()}}} function returns the text that is currently swapped in.
+
+<<set _catsPred to 'They meow constantly.'>>\
+I <<swap>>own<<onswap>>
+    <<if swapCurrent() is 'love'>>
+        <<set _catsPred to 'I wish I had more.'>>
+     <<else>>
+        <<set _catsPred to 'They meow constantly.'>>
+    <</if>>
+    <<replace '#catsPred'>>_catsPred<</replace>>
+<</swap>> cats. @@#catsPred;_catsPred@@ I <<swap>>love<</swap>> dogs. I <<swap>>hate<</swap>> birds, though.
+
+[[Try another example.|swap2]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/swap-macro-set]]
+
+:: swap2
+Here's an example of a simple number code puzzle implemented with the swap macro:
+
+<<set _correct to [false, false, false]>>\
+Enter the code:
+
+<<swap>>1<<onswap>>
+	<<if swapCurrent() is '3'>>
+		<<set _correct[0] to true>>
+	<<else>>
+		<<set _correct[0] to false>>
+	<</if>>
+<</swap>>
+<<swap>>2<<onswap>>
+	<<if swapCurrent() is '1'>>
+		<<set _correct[1] to true>>
+	<<else>>
+		<<set _correct[1] to false>>
+	<</if>>
+<</swap>>
+<<swap>>3<<onswap>>
+	<<if swapCurrent() is '2'>>
+		<<set _correct[2] to true>>
+	<<else>>
+		<<set _correct[2] to false>>
+	<</if>>
+<</swap>>
+
+<span id="solved">
+	@@#not-right;@@
+
+  <<button "Try the combination...">>
+	  <<if not _correct.includes(false)>>
+		  <<replace '#solved'>>''You got it!''<</replace>>
+	   <<else>>
+	   		<<replace '#not-right'>>No, that's not it...<</replace>>
+		<</if>>
+  <</button>>
+</span>
+
+(The code is 312.)
+
+[[Previous|swap]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/swap-macro-set]]

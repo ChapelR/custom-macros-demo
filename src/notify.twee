@@ -1,0 +1,10 @@
+:: notify 
+<<notify>>Hi there!<</notify>>\
+The {{{<<notify>>}}} macro can be used to display a quick message to users. It's less discruptive that a dialog or alert, and ideal for something like a quick inventory or achievement update. You can click the link below to fire another notification in case you missed the first one. Note, however, that allowing users to activate these notifications like this is a bad idea; if they click too much, the animations will start to trip over each other.
+
+<<link 'See a notification.'>>
+    <<notify 5s>>This is a notification!<</notify>>
+<</link>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/notify-macro]]

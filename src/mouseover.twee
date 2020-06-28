@@ -1,0 +1,27 @@
+:: mouseover
+The {{{<<mouseover>>}}} macro can be used to trigger macro code on a variety of mouse and hover events.
+
+Example of a "tooltip":
+
+<<nobr>>
+    <<mouseover>>
+        <<link "Hover over this!">><</link>>
+    <<onmousein>>
+        <<replace '#tooltip'>>Click me!<</replace>>
+    <<onmouseout>>
+        <<replace '#tooltip'>><</replace>>
+    <</mouseover>>
+    @@#tooltip;@@
+<</nobr>>
+
+Navigate on mouseover instead of on click:
+
+<<mouseover>>[[Watch out for the pit!|pitfall]]<<onhover>><<goto 'pitfall'>><</mouseover>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/mouseover-macro]]
+
+:: pitfall [no-gist]
+You fell in a pit! Be more careful next time.
+
+[[Climb back out|mouseover]]

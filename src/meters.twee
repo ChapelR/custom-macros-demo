@@ -1,0 +1,70 @@
+:: meters
+The meter macro set can be used to define cutomizable meters (like health bars, timers, progress bars, etc) and display and update them on the page.
+
+These meters are defined through the {{{<<newmeter>>}}} macro and its child tags, {{{<<colors>>}}}, {{{<<sizing>>}}}, {{{<<animation>>}}}, and {{{<<label>>}}}. You can also just define a meter with no child tags, in which case it will use the default meter settings.
+
+You ''must'' run the {{{<<newmeter>>}}} macro before the story starts, e.g. in your {{{StoryInit}}} special passage. Below is a recreation of the code placed in the {{{StoryInit}}} special passage of this demo file:
+
+\<pre><code><nowiki>
+<<set $health to 100, $maxHealth to 100>>
+<<newmeter 'timer' 0>>
+    <<colors 'red' 'green'>>
+    <<animation 10s linear>>
+<</newmeter>>
+<<newmeter 'health' 1>>
+    <<sizing '220px'>>
+    <<label '$health'>>
+<</newmeter>>
+<<newmeter 'stamina'>><</newmeter>>
+</nowiki></code></pre>\
+
+[[Continue|meters2]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/meter-macros]]
+
+:: meters2
+You can use the meters in a passage with the {{{<<showmeter>>}}} macro, and update their values (while animating them) with the {{{<<updatemeter>>}}} macro.
+
+<<set _stamina to 75, _maxStamina to 75>>\
+Health: <<showmeter 'health' `_health / _maxHealth`>>
+Stamina: <<showmeter 'stamina' `_stamina / _maxStamina`>>
+
+<<link 'Drink a potion (restore some health).'>>
+    <<set $health to Math.clamp($health + random(10, 20), 0, $maxHealth)>>
+    <<updatemeter 'health' `$health / $maxHealth`>>
+<</link>>
+<<link 'Smoke a cigarette (reduce health).'>>
+    <<set $health to Math.clamp($health - random(10, 30), 0, $maxHealth)>>
+    <<updatemeter 'health' `$health / $maxHealth`>>
+<</link>>
+<<link 'Eat some steak (restore stamina).'>>
+    <<set _stamina to Math.clamp(_stamina + random(10, 20), 0, _maxStamina)>>
+    <<updatemeter 'stamina' `_stamina / _maxStamina`>>
+<</link>>
+<<link 'Do some jumping jacks (reduce stamina).'>>
+    <<set _stamina to Math.clamp(_stamina - random(10, 30), 0, _maxStamina)>>
+    <<updatemeter 'stamina' `_stamina / _maxStamina`>>
+<</link>>
+
+[[Continue|meters3]]
+[[Go back|meters]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/meter-macros]]
+
+:: meters3
+You can also use meters to as timers, and plug into meter animations with the JavaScript API.
+
+<<set _time to 0>>\
+Time until the bomb explodes: <<showmeter 'timer' 1>>
+@@#boom;@@\
+<<run Meter.get('timer').on(':meter-animation-complete', function () {
+    $('#boom').append('BOOOOOOOOM!!!!');
+})>>
+
+[[Go back|meters2]]
+[[Start over|meters]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/meter-macros]]

@@ -1,0 +1,77 @@
+:: cycles [cycle]
+The cycles system is a time-keeping mechanism based on passage transitions. The best place to define cycles is in your {{{StoryInit}}} special passage. The portion of this file's {{{StoryInit}}} special passage that sets up a cycle is reproduced below:
+
+\<pre><code><nowiki>
+<<newcycle 'time' 3>>
+    <<phase 'morning' 'day' 'evening' 'night'>>
+<</newcycle>>
+</nowiki></code></pre>\
+
+Additionally, we use a {{{PassageHeader}}} special passage to show the cycle via the {{{<<showcycle>>}}} macro:
+
+\<pre><code><nowiki>
+<<if tags().includes('cycles')>>\
+    <div id='cycles'><<showcycle 'time' upperfirst>></div>
+\<</if>>
+</nowiki></code></pre>\
+
+[[Continue|cycles2]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/cycles-system]]
+
+:: cycles2 [cycle]
+We can use the {{{<<editcycle>>}}} macro to have a variety of effects on the cycle in question. Here's a few ways we can use that macro.
+
+<<link 'Reset the cycle.'>>
+    <<editcycle 'time' reset>>
+    <<replace '#cycles'>><<showcycle 'time' upperfirst>><</replace>>
+<</link>>
+
+<<link 'Reduce the cycle\'s counter.'>>
+    <<editcycle 'time' change -6>>
+    <<replace '#cycles'>><<showcycle 'time' upperfirst>><</replace>>
+<</link>>
+
+<<link 'Increase the cycle\'s counter.'>>
+    <<editcycle 'time' change 6>>
+    <<replace '#cycles'>><<showcycle 'time' upperfirst>><</replace>>
+<</link>>
+
+[[Continue|cycles3]]
+[[Go back|cycles]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/cycles-system]]
+
+:: cycles3 [cycle]
+We can use the {{{<<showcycle>>}}} macro to print the cycle in a few different formats.
+
+Normal: <<showcycle 'time'>>
+Uppercase: <<showcycle 'time' uppercase>>
+Upperfirst: <<showcycle 'time' upperfirst>>
+Lowercase: <<showcycle 'time' lowercase>>
+
+[[Continue|cycles4]]
+[[Go back|cycles2]]
+[[Start over|cycles]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/cycles-system]]
+
+:: cycles4 [cycle]
+In addition, there are several JavaScript methods and a few passage tags you can use as well.
+
+<<if Cycle.get('time').current() === 'morning'>>\
+    It's morning right now.\
+<<else>>\
+    It's not morning.\
+<</if>>
+
+The {{{time}}} cycle takes <<= Cycle.get('time').turns()>> turns to move one phase and <<= Cycle.get('time').turnsTotal()>> to cycle through all of its phases once. 
+
+[[Go back|cycles3]]
+[[Start over|cycles]]
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/cycles-system]]
