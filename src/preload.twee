@@ -1,0 +1,17 @@
+:: preload
+The {{{<<preload>>}}} macro can be used to preload images. Preloading will improve performance as players click through the game, but will also increase startup time. It is recommended that users only load important images, like icons, and that users avoid loading tons of large images, like high-quality backgrounds.
+
+The {{{<<preload>>}}} macro must be generally used in {{{StoryInit}}}. For example, this demo includes this line in {{{StoryInit}}}:
+
+\<pre><code><nowiki>
+<<preload 'assets/lisa.jpg' 'assets/bob.jpg'>>
+</nowiki></code></pre>\
+
+If you need to preload images at some other time it is possible, however, very much not recommended. You can add the following to {{{StoryInit}}} to enable you to preload at any time:
+
+\<pre><code><nowiki>
+<<set setup.preload.force to true>>
+</nowiki></code></pre>\
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/preload]]

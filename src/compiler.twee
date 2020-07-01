@@ -10,6 +10,8 @@ Custom Macros Demo
 <<set $gist to "https://gist.github.com/ChapelR/3759a9ad0246eb72bc47a621f1edbf43.js">>
 <<set $gistCode to "3759a9ad0246eb72bc47a621f1edbf43">>
 
+<<preload 'assets/lisa.jpg' 'assets/bob.jpg'>>
+
 <<set $health to 100, $maxHealth to 100>>
 <<newmeter 'timer' 0>>
     <<colors 'red' 'green'>>
@@ -36,6 +38,7 @@ This file will include demos and examples of my macro collection in action. To g
 [[Dialog API Macros|dialog]]
 [[The UI Macro|ui]]
 [[The Done Macro|done]]
+[[The Preload Macro|preload]]
 [[The Mouseover Macro|mouseover]]
 [[The Continue Macro|continue]]
 [[The Event Macros|event]]
