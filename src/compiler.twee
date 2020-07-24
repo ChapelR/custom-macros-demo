@@ -36,6 +36,7 @@ This file will include demos and examples of my macro collection in action. To g
 
 :: StoryMenu
 [[Dialog API Macros|dialog]]
+[[The Popover Macro|popover]]
 [[The UI Macro|ui]]
 [[The Done Macro|done]]
 [[The Preload Macro|preload]]
