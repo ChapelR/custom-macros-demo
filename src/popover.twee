@@ -1,0 +1,22 @@
+:: popover
+The {{{<<popover>>}}} macro can be used to generate special dialog API modals that are designed to display full screen content. For example, consider try the following.
+
+<<link "Click me!">>
+    <<popover 'noclick'>>[img[assets/lisa.jpg]]<</popover>>
+<</link>>
+<<link "Click me!">>
+    <<popover 'noclick' 'invert'>>[img[assets/bob.jpg]]<</popover>>
+<</link>>
+
+You can also display text using the popover:
+
+<<link "Click me!">>
+    <<popover 'opaque'>>\
+        Once upon a time... In a distant land...
+
+        Chapel made a macro set that required a constant barrage of unending examples.
+    \<</popover>>
+<</link>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/popover]]
