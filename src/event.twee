@@ -1,19 +1,26 @@
 :: event
-The {{{<<event>>}}} macro can be used to set up event handlers using macro code. You can use this code to set up keyboard controls, hotkeys, double click events, and click events on normally not clickable elements.  The {{{<<trigger>>}}} macro can be used to artificially trigger events, like clicking links.
-
-Events are usually best set up in your [[StoryInit special passage|http://www.motoslave.net/sugarcube/2/docs/#special-passage-storyinit]], and once set up they are essetnially permanent. We set the events up here, in this passage, only to show some examples, but doing this in an actual game is a bad idea.
+The {{{<<on>>}}} macro can be used to set up event handlers using macro code. You can use this code to set up keyboard controls, hotkeys, double click events, and click events on normally not clickable elements.  The {{{<<trigger>>}}} macro can be used to artificially trigger events, like clicking links, the {{{<<off>>}}} macro can remove event handlers, and the {{{<<one>>}}} macro can set up single-use handlers.
 
 Try pressing the space bar and/or escape.
 
 <<nobr>>
-<<event 'keyup'>>
+<<on 'keyup'>>
 <<which 32>>
     <<trigger 'click' '#space-hotkey a'>> 
 <<which 27>>
     <<dialog 'Escape'>>You can't escape!<</dialog>>
-<</event>>
+<</on>>
 <</nobr>>\
-@@#space-hotkey;<<link 'This link is also activated with the spacebar!'>><<run UI.alert('Spacebar pressed!')>><</link>>
+@@#space-hotkey;<<link 'This link is also activated with the spacebar!'>><<run UI.alert('Spacebar pressed!')>><</link>>@@
+
+<<link "Remove key events!">><<off "keyup.macro-event">><</link>>
+
+@@#clicky;Click this text for a one-time only (per visit) message!@@
+<<nobr>>
+    <<one 'click' '#clicky'>>
+        <<run UI.alert("There's no going back!")>>
+    <</one>>
+<</nobr>>
 
 -----
 [[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/event-macros]]
