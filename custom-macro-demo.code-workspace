@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"twee3LanguageTools.storyformat.current": "",
+		"twee3LanguageTools.storyformat.override": "sugarcube-2",
+		"twee3LanguageTools.passage.list": true
+	}
+}
