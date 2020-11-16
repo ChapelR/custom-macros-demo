@@ -1,0 +1,20 @@
+:: disable
+The {{{<<disable>>}}} macro can be used to disable (render non-interactive) certain interactive elements like buttons or inputs. The macro must be used to wrap the element the user wishes to disable. You may optionally pass an expression to the macro; if this expression evaluates to something truthy, the element will be disabled, if it's falsy, the element will not be disabled. If no expression is passed, the macro will disable its contents. The macro only targets the first interactive element it can find. If it can't find an interactive element, it will instead target the first child element. The effect on non-interactive elements is variable.
+
+This button should be disabled:
+<<disable>><<button "Submit">><</button>><</disable>>
+
+This textbox should also be disabled:
+<<disable 1 === 1>><<textbox "$name" "">><</disable>>
+
+This listbox, too:
+<<disable true>><<listbox '$whee'>><<optionsfrom ["1", "2", "3"]>><</listbox>><</disable>>
+
+This button should ''not'' be disabled:
+<<disable false>><<button "Submit">><</button>><</disable>>
+
+This textbox should ''not'' be disabled:
+<<disable 1 === 0>><<textbox "$name" "">><</disable>>
+
+-----
+[[Documentation|https://twinelab.net/custom-macros-for-sugarcube-2/#/disable-macro]]
